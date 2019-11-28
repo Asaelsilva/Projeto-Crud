@@ -111,7 +111,8 @@ namespace ConexaoBD
                  Email = email
             };
 
-            new FuncionarioAplicacao().inserir(funcionario);
+            funcionario.Id = 9;
+            new FuncionarioAplicacao().Salvar(funcionario);
 
             //string strQueryInsert = string.Format("INSERT INTO Funcionario(nome, cargo, date, email) VALUES('{0}','{1}', '{2}', '{3}')", nome, cargo, dataNasc, email);
             //banco.ExecutaComnadoSemRetorno(strQueryInsert);

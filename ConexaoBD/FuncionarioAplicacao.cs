@@ -9,7 +9,7 @@ namespace ConexaoBD
     class FuncionarioAplicacao
     {
         private Banco Banco;
-        public void inserir(Funcionario funcionario)
+        private void inserir(Funcionario funcionario)
         {
             var strQuery = "";
             strQuery += "INSERT INTO Funcionario(nome, cargo, date, email)";
@@ -21,15 +21,32 @@ namespace ConexaoBD
             }
         }
 
-        public void Alterar(Funcionario funcionario)
+        private void Alterar(Funcionario funcionario)
         {
             var strQuery = "";
-            strQuery += "UPDATE Funcionario SET";
-            strQuery += string.Format("Nome = '{0}'", funcionario.Nome);
-            strQuery += string.Format("Cargo = '{0}'", funcionario.Cargo);
-            strQuery += string.Format("Data = '{0}'", funcionario.Data);
-            strQuery += string.Format("Email = '{0}'", funcionario.Email);
+            strQuery += "UPDATE Funcionario SET ";
+            strQuery += string.Format("nome = '{0}',", funcionario.Nome);
+            strQuery += string.Format("cargo = '{0}',", funcionario.Cargo);
+            strQuery += string.Format("date = '{0}',", funcionario.Data);
+            strQuery += string.Format("email = '{0}' ", funcionario.Email);
+            strQuery += string.Format("WHERE usuarioId = '{0}'", funcionario.Id);
 
+            using (Banco = new Banco())
+            {
+                Banco.ExecutaComnadoSemRetorno(strQuery);
+            }
+        }
+
+        public void Salvar(Funcionario funcionario)
+        {
+            if (funcionario.Id > 0)
+            {
+                Alterar(funcionario);
+            }
+            else
+            {
+                inserir(funcionario);
+            }
         }
     }
 }
