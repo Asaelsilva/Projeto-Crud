@@ -87,6 +87,44 @@ namespace ConexaoBD
 
             //}
 
+            //============================NOVO PROJETO============================
+
+            var banco = new Banco();
+            
+            Console.WriteLine("Digite o nome do Funcionario: ");
+            string nome = Console.ReadLine(); // Ira guardar o que o usuario digitou no console dento da variavel
+
+            Console.WriteLine("Digite Cargo: ");
+            string cargo = Console.ReadLine();
+
+            Console.WriteLine("Digite Data nascimento: ");
+            string dataNasc = Console.ReadLine();
+
+            Console.WriteLine("Digite o email: ");
+            string email = Console.ReadLine();
+
+            var funcionario = new Funcionario 
+            {
+                 Nome = nome, 
+                 Cargo = cargo,
+                 Data = DateTime.Parse(dataNasc),
+                 Email = email
+            };
+
+            new FuncionarioAplicacao().inserir(funcionario);
+
+            //string strQueryInsert = string.Format("INSERT INTO Funcionario(nome, cargo, date, email) VALUES('{0}','{1}', '{2}', '{3}')", nome, cargo, dataNasc, email);
+            //banco.ExecutaComnadoSemRetorno(strQueryInsert);
+
+
+            string strQuerySelect = "SELECT * FROM Funcionario";
+            SqlDataReader executaComando = banco.ExecutaComandoComRetorno(strQuerySelect);
+
+            
+            while (executaComando.Read())
+            {
+                Console.WriteLine("Id: {0}, Nome: {1},Cargo: {2}, Data-Nasc: {3}, E-mail {4},", executaComando["usuarioId"], executaComando["nome"], executaComando["cargo"], executaComando["date"], executaComando["email"]);
+            }
 
             Console.ReadLine();
         }

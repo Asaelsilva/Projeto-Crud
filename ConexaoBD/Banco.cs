@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConexaoBD
 {
@@ -15,7 +12,8 @@ namespace ConexaoBD
 
         public Banco()
         {
-            conexao = new SqlConnection(@"Data Source= DESKTOP-O34D68D\SQLEXPRESS; Integrated Security=SSPI; Initial Catalog=ExemploBD");
+            //Busca minha string de conexao que esta em XML que esta em app.config
+            conexao = new SqlConnection(ConfigurationManager.ConnectionStrings["ConexaoBD"].ConnectionString);
             conexao.Open();
         }
 
@@ -28,6 +26,7 @@ namespace ConexaoBD
                 CommandType = CommandType.Text,
                 Connection = conexao
             };
+            comando.ExecuteNonQuery();
         }
 
         //Metodo que ira executa SELECT do metodo com retorno ExecuteReader()
