@@ -91,40 +91,40 @@ namespace ConexaoBD
 
             var banco = new Banco();
             
-            Console.WriteLine("Digite o nome do Funcionario: ");
-            string nome = Console.ReadLine(); // Ira guardar o que o usuario digitou no console dento da variavel
+            //Console.WriteLine("Digite o nome do Funcionario: ");
+            //string nome = Console.ReadLine(); // Ira guardar o que o usuario digitou no console dento da variavel
 
-            Console.WriteLine("Digite Cargo: ");
-            string cargo = Console.ReadLine();
+            //Console.WriteLine("Digite Cargo: ");
+            //string cargo = Console.ReadLine();
 
-            Console.WriteLine("Digite Data nascimento: ");
-            string dataNasc = Console.ReadLine();
+            //Console.WriteLine("Digite Data nascimento: ");
+            //string dataNasc = Console.ReadLine();
 
-            Console.WriteLine("Digite o email: ");
-            string email = Console.ReadLine();
+            //Console.WriteLine("Digite o email: ");
+            //string email = Console.ReadLine();
 
-            var funcionario = new Funcionario 
-            {
-                 Nome = nome, 
-                 Cargo = cargo,
-                 Data = DateTime.Parse(dataNasc),
-                 Email = email
-            };
+            //var funcionario = new Funcionario 
+            //{
+            //     Nome = nome, 
+            //     Cargo = cargo,
+            //     Data = DateTime.Parse(dataNasc),
+            //     Email = email
+            //};
 
-            funcionario.Id = 9;
-            new FuncionarioAplicacao().Salvar(funcionario);
+            //funcionario.Id = 9;
+            //new FuncionarioAplicacao().Excluir(9);
 
             //string strQueryInsert = string.Format("INSERT INTO Funcionario(nome, cargo, date, email) VALUES('{0}','{1}', '{2}', '{3}')", nome, cargo, dataNasc, email);
             //banco.ExecutaComnadoSemRetorno(strQueryInsert);
 
 
-            string strQuerySelect = "SELECT * FROM Funcionario";
-            SqlDataReader executaComando = banco.ExecutaComandoComRetorno(strQuerySelect);
+            //string strQuerySelect = "SELECT * FROM Funcionario";
+            var dados = new FuncionarioAplicacao().Lista();
 
             
-            while (executaComando.Read())
+            foreach (var funcionario in dados)
             {
-                Console.WriteLine("Id: {0}, Nome: {1},Cargo: {2}, Data-Nasc: {3}, E-mail {4},", executaComando["usuarioId"], executaComando["nome"], executaComando["cargo"], executaComando["date"], executaComando["email"]);
+                Console.WriteLine("Id: {0}, Nome: {1},Cargo: {2}, Data-Nasc: {3}, E-mail {4},", funcionario.Id, funcionario.Nome, funcionario.Cargo, funcionario.Data, funcionario.Email);
             }
 
             Console.ReadLine();
