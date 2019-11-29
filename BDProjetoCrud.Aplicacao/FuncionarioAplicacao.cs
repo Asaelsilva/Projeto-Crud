@@ -1,13 +1,12 @@
-﻿using System;
+﻿using BDProjetoCrud.Repositorio;
+using BDProjetoCrud.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConexaoBD
+namespace BDPojetoCrud.Aplicacao
 {
-    class FuncionarioAplicacao
+    public class FuncionarioAplicacao
     {
         private Banco Banco;
         private void inserir(Funcionario funcionario)

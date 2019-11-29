@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BDProjetoCrud.Dominio;
+using System;
+using BDPojetoCrud.Aplicacao;
 
-namespace ConexaoBD
+namespace DOS
 {
     class Program
     {
         static void Main(string[] args)
         {
 
-            var banco = new Banco();
+           
             var app = new FuncionarioAplicacao();
 
             Console.WriteLine("Digite o nome do Funcionario: ");

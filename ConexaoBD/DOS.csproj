@@ -44,14 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Banco.cs" />
-    <Compile Include="Funcionario.cs" />
-    <Compile Include="FuncionarioAplicacao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BDProjetoCrud.Aplicacao\BDProjetoCrud.Aplicacao.csproj">
+      <Project>{5705e048-a93e-4389-aef8-5902eba80851}</Project>
+      <Name>BDProjetoCrud.Aplicacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BDProjetoCrud.Dominio\BDProjetoCrud.Dominio.csproj">
+      <Project>{cc671907-f64c-4170-a61b-c3fe136d3bbc}</Project>
+      <Name>BDProjetoCrud.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,9 +3,9 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace ConexaoBD
+namespace BDProjetoCrud.Repositorio
 {
-    class Banco : IDisposable
+    public class Banco : IDisposable
     {
         private readonly SqlConnection conexao;
         //readonly: Somente para leitura
