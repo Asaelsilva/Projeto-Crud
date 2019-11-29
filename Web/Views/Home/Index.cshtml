@@ -2,6 +2,20 @@
 
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Lista de Funcionario";
 }
+
+<h2>Lista de Funcionario</h2>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Nome</li>
+    }
+</ul>
+
+
+
+
+
 
