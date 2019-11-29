@@ -88,9 +88,5 @@ namespace ConexaoBD
             reader.Close();
             return funcionario;
         }
-    
-    
-    
-    
     }
 }
