@@ -180,6 +180,16 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BDProjetoCrud.Aplicacao\BDProjetoCrud.Aplicacao.csproj">
+      <Project>{5705e048-a93e-4389-aef8-5902eba80851}</Project>
+      <Name>BDProjetoCrud.Aplicacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BDProjetoCrud.Dominio\BDProjetoCrud.Dominio.csproj">
+      <Project>{cc671907-f64c-4170-a61b-c3fe136d3bbc}</Project>
+      <Name>BDProjetoCrud.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
